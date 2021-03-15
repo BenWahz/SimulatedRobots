@@ -8,7 +8,18 @@ import random
 import matplotlib.pylab as plt
 from simulation import SIMULATION
 
-pass
+simulation = SIMULATION()
+simulation.run()
+
+
+
+
+
+
+
+
+
+
 # physicsClient = p.connect(p.GUI)
 # p.setAdditionalSearchPath(pybullet_data.getDataPath())
 #
@@ -38,38 +49,7 @@ pass
 # p.loadSDF("world.sdf")
 # pyrosim.Prepare_To_Simulate("body.urdf")
 # #make empty array the size of for loop
-# backLegSensorValues = numpy.zeros(c.Steps_constant)
-# frontLegSensorValues = numpy.zeros(c.Steps_constant)
-# for i in range(c.Steps_constant):
-#     p.stepSimulation()
-#     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("Back_Leg")
-#     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("Front_Leg")
-#     pyrosim.Set_Motor_For_Joint(
 #
-#         bodyIndex=robot,
-#
-#         jointName="Torso_Front_Leg",
-#
-#         controlMode=p.POSITION_CONTROL,
-#
-#         targetPosition=FL_targetAngles[i],
-#
-#         maxForce=250)
-#
-#     pyrosim.Set_Motor_For_Joint(
-#
-#         bodyIndex=robot,
-#
-#         jointName="Torso_Back_Leg",
-#
-#         controlMode=p.POSITION_CONTROL,
-#
-#         targetPosition=BL_targetAngles[i],
-#
-#         maxForce=250)
-#
-#     #print(backLegSensorValues[i])
-#     time.sleep(1/240)
 # numpy.save("data/backLegData.npy", backLegSensorValues)
 # numpy.save("data/frontLegData.npy", frontLegSensorValues)
 # p.disconnect()
