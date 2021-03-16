@@ -12,18 +12,10 @@ class MOTOR:
         self.amplitude = c.amplitude
         self.frequency = c.frequency
         self.offset = c.offset
-        self.Prepare_To_Act()
-
-    def Prepare_To_Act(self):
-        if self.jointName == "Torso_Front_Leg":
-            self.frequency = self.frequency / 2
-        else:
-            pass
-
-        self.motorValues = self.amplitude * numpy.sin(self.frequency * (numpy.linspace(-numpy.pi, numpy.pi, c.Steps_constant)) + c.offset)
+        #self.Prepare_To_Act()
 
 
-    def Set_Values(self, timeStep, bodyIndex):
+    def Set_Values(self, desiredAngle, bodyIndex):
         pyrosim.Set_Motor_For_Joint(
 
                 bodyIndex=bodyIndex,
@@ -32,10 +24,8 @@ class MOTOR:
 
                 controlMode=p.POSITION_CONTROL,
 
-                targetPosition= self.motorValues[timeStep],
+                targetPosition= desiredAngle,
 
                 maxForce=250)
         #self.motorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("Back_Leg")
 
-    def saveValues(self):
-        numpy.save("data/" + self.jointName + "MotorValues.npy", self.motorValues)

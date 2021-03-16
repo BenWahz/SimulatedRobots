@@ -21,7 +21,7 @@
             </geometry>
         </collision>
     </link>
-    <joint name="Torso_Front_Leg" type="revolute">
+    <joint name="Torso_FrontLeg" type="revolute">
        <parent link="Torso"/>
        <child  link="Front_Leg"/>
        <origin rpy="0 0 0" xyz="0.5 0 1"/>
@@ -50,7 +50,7 @@
             </geometry>
         </collision>
     </link>
-    <joint name="Torso_Back_Leg" type="revolute">
+    <joint name="Torso_BackLeg" type="revolute">
        <parent link="Torso"/>
        <child  link="Back_Leg"/>
        <origin rpy="0 0 0" xyz="-0.5 0 1"/>
