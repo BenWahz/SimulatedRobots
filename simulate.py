@@ -6,11 +6,20 @@ import numpy
 import constants as c
 import random
 import matplotlib.pylab as plt
+import sys
+import os
+
+
 from simulation import SIMULATION
 
-simulation = SIMULATION()
-simulation.run()
+# os.system("python simulate.py DIRECT")
+# os.system("python simulate.py GUI")
+directOrGUI = sys.argv[1]
 
+
+simulation = SIMULATION(directOrGUI)
+simulation.run()
+simulation.Get_Fitness()
 
 
 
