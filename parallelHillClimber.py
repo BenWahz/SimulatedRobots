@@ -62,7 +62,7 @@ class PARALLEL_HILL_CLIMBER:
         print(solutions)
         # exit()
         for i in range(len(solutions)):
-            solutions[i].Start_Simulation("GUI")   #CHANGING THIS TO GUI WILL BREAK PARALLELISM, NOT SURE WHY
+            solutions[i].Start_Simulation("DIRECT")   #CHANGING THIS TO GUI WILL BREAK PARALLELISM, NOT SURE WHY
             # exit()
         for j in range(len(solutions)):
             solutions[j].Wait_For_Simulation_To_End()
