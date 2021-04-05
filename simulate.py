@@ -18,9 +18,9 @@ directOrGUI = sys.argv[1]
 solutionID = sys.argv[2]
 
 simulation = SIMULATION(directOrGUI, solutionID)
-print("CODE GOT HERE")
+print("CODE GOT HERE (simulate.py)")
 simulation.run()
-print("Simulation Ran")
+print("Simulation Ran (simulate.py)")
 simulation.Get_Fitness(solutionID)
 
 

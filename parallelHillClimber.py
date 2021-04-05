@@ -32,7 +32,7 @@ class PARALLEL_HILL_CLIMBER:
 
     def Select(self):
         for i in range(len(self.parents)):
-            if self.parents[i].fitness < self.children[i].fitness:
+            if self.parents[i].fitness > self.children[i].fitness:
                 self.parents[i] = self.children[i]
         # print("FITNESS SCORES")
         # print(self.parent.fitness)
@@ -52,17 +52,18 @@ class PARALLEL_HILL_CLIMBER:
     def Evolve(self):
         print(self.parents)
         self.Evaluate(self.parents)
-        print("Should exit now")
-        # exit()
+        # print("Should exit now")
+
         for currentGeneration in range(c.currentGenerations):
             self.Evolve_For_One_Generation()
 
     def Evaluate(self, solutions):
-        print("FLAG FLAG")
+        print("FLAG FLAG (parallelHC.py)")
         print(solutions)
+        # exit()
         for i in range(len(solutions)):
-            solutions[i].Start_Simulation("DIRECT")   #CHANGING THIS TO GUI WILL BREAK PARALLELISM, NOT SURE WHY
-
+            solutions[i].Start_Simulation("GUI")   #CHANGING THIS TO GUI WILL BREAK PARALLELISM, NOT SURE WHY
+            # exit()
         for j in range(len(solutions)):
             solutions[j].Wait_For_Simulation_To_End()
 

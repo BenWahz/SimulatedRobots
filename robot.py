@@ -24,7 +24,7 @@ class ROBOT:
         self.nn = NEURAL_NETWORK("brain" + str(solutionID) + ".nndf")
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
-        #os.system("del brain" + str(solutionID) + ".nndf")
+        os.system("del brain" + str(solutionID) + ".nndf")
 
 
 

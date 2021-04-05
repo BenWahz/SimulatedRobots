@@ -26,12 +26,6 @@ class SIMULATION:
         self.robot = ROBOT(solutionID)
 
 
-
-
-
-
-
-
     def run(self):
 
         for i in range(0, c.Steps_constant):

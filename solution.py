@@ -28,11 +28,16 @@ class SOLUTION:
         self.Create_World()
         self.Generate_Body()
         self.Generate_Brain()
+
+
+
         # while not os.path.exists("brain" + str(self.myID) + ".nndf"):
         #     time.sleep(0.01)
-        print("FLAG 2 ID = " + str(self.myID))
+        print("FLAG 2 calling start command (solution.py) ID = " + str(self.myID))
+        # exit()
         os.system("start /B py simulate.py " + DirectOrGUI + " " + str(self.myID))
-        print("FLAG 3")
+        # exit()
+        print("FLAG 3 (solution.py)")
 
     def Wait_For_Simulation_To_End(self):
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
@@ -62,8 +67,11 @@ class SOLUTION:
         x = 2
         y = 2
         z = 0.5
+        # exit()
         pyrosim.Send_Cube(name="Box", pos=[x, y, z], size=[length, width, height])
+
         pyrosim.End()
+        # exit()
         while not os.path.exists("world.sdf"):
             time.sleep(0.01)
 
