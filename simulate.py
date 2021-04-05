@@ -15,11 +15,13 @@ from simulation import SIMULATION
 # os.system("python simulate.py DIRECT")
 # os.system("python simulate.py GUI")
 directOrGUI = sys.argv[1]
+solutionID = sys.argv[2]
 
-
-simulation = SIMULATION(directOrGUI)
+simulation = SIMULATION(directOrGUI, solutionID)
+print("CODE GOT HERE")
 simulation.run()
-simulation.Get_Fitness()
+print("Simulation Ran")
+simulation.Get_Fitness(solutionID)
 
 
 

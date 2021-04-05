@@ -9,7 +9,8 @@ import pyrosim.pyrosim as pyrosim
 
 
 class SIMULATION:
-    def __init__(self, sim_style):
+    def __init__(self, sim_style, solutionID):
+        self.directOrGUI = sim_style
         if sim_style == "DIRECT":
             p.connect(p.DIRECT)
         elif sim_style == "GUI":
@@ -19,12 +20,15 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
         self.world = WORLD()
-        self.robot = ROBOT()
-
-
-
 
         p.setGravity(0, 0, c.Gravity_constant)
+
+        self.robot = ROBOT(solutionID)
+
+
+
+
+
 
 
 
@@ -36,12 +40,12 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
-
-            time.sleep(1/3000)
+            if self.directOrGUI == "GUI":
+                time.sleep(1/3000)
 
     def __del__(self):
         p.disconnect()
 
-    def Get_Fitness(self):
-        self.robot.Get_Fitness()
+    def Get_Fitness(self, solutionID):
+        self.robot.Get_Fitness(solutionID)
 
