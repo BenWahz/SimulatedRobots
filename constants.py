@@ -16,9 +16,14 @@ Gravity_constant = -9.8
 
 Steps_constant = 1000
 
-s = 2 #number of sensors on robot
-m = 2 #number of motors on robot
+s = 4 #number of sensors on robot
+m = 8 #number of motors on robot
 
-currentGenerations = 10
+currentGenerations = 20
 
 populationSize = 10
+
+numSensorNeurons = 4
+numMotorNeurons = 8
+
+motorJointRange = 0.5
