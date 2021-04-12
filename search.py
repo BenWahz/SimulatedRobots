@@ -8,6 +8,6 @@ import hillclimber
 
 
 phc = PARALLEL_HILL_CLIMBER()
-print("Flag 1")
+# print("Flag 1")
 phc.Evolve()
 phc.Show_Best()

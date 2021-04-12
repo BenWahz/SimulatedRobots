@@ -58,12 +58,12 @@ class PARALLEL_HILL_CLIMBER:
             self.Evolve_For_One_Generation()
 
     def Evaluate(self, solutions):
-        print("FLAG FLAG (parallelHC.py)")
+
         print(solutions)
-        # exit()
+
         for i in range(len(solutions)):
-            solutions[i].Start_Simulation("DIRECT")   #CHANGING THIS TO GUI WILL BREAK PARALLELISM, NOT SURE WHY
-            # exit()
+            solutions[i].Start_Simulation("DIRECT")   #CHANGING THIS TO GUI WILL BREAK PARALLELISM, INTERNAL ISSUE WITH PYCHARM
+
         for j in range(len(solutions)):
             solutions[j].Wait_For_Simulation_To_End()
 

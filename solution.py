@@ -33,11 +33,11 @@ class SOLUTION:
 
         # while not os.path.exists("brain" + str(self.myID) + ".nndf"):
         #     time.sleep(0.01)
-        print("FLAG 2 calling start command (solution.py) ID = " + str(self.myID))
+        # print("FLAG 2 calling start command (solution.py) ID = " + str(self.myID))
         # exit()
         os.system("start /B py simulate.py " + DirectOrGUI + " " + str(self.myID))
         # exit()
-        print("FLAG 3 (solution.py)")
+        # print("FLAG 3 (solution.py)")
 
     def Wait_For_Simulation_To_End(self):
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
