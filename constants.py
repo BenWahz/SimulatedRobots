@@ -19,7 +19,7 @@ Steps_constant = 1000
 s = 4 #number of sensors on robot
 m = 8 #number of motors on robot
 
-currentGenerations = 20
+currentGenerations = 10
 
 populationSize = 10
 
