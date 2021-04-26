@@ -12,9 +12,9 @@ BL_amplitude = numpy.pi/4
 BL_frequency = 6
 BL_phaseOffset = numpy.pi
 
-Gravity_constant = -9.8
+Gravity_constant = -19.6
 
-Steps_constant = 1000
+Steps_constant = 2500
 
 s = 4 #number of sensors on robot
 m = 8 #number of motors on robot
@@ -23,7 +23,9 @@ currentGenerations = 10
 
 populationSize = 10
 
+
 numSensorNeurons = 4
+numHiddenNeurons = 2
 numMotorNeurons = 8
 
-motorJointRange = 0.5
+motorJointRange = 1.25
