@@ -18,11 +18,11 @@ class NEURON:
 
         self.Search_For_Joint_Name(line)
 
-        self.Set_Value(0.0)
+        self.Set_Value(0.0, 0.0)
 
     def Add_To_Value( self, value ):
 
-        self.Set_Value( self.Get_Value() + value )
+        self.Set_Value( self.Get_Value() + value, self.Get_Value())
 
     def Get_Joint_Name(self):
 
@@ -40,6 +40,9 @@ class NEURON:
 
         return self.value
 
+    def Get_Prev_Value(self):
+        return self.prev_value
+
     def Is_Sensor_Neuron(self):
 
         return self.type == c.SENSOR_NEURON
@@ -52,6 +55,10 @@ class NEURON:
 
         return self.type == c.MOTOR_NEURON
 
+    # def Get_Type(self):
+    #     return self.type
+
+
     def Print(self):
 
         # self.Print_Name()
@@ -62,23 +69,34 @@ class NEURON:
 
         # print("")
 
-    def Set_Value(self,value):
-
+    def Set_Value(self,value, prev_value):
         self.value = value
+        self.prev_value = prev_value
+
 
     def Update_Sensor_Neuron(self):
-        self.Set_Value(pyrosim.Get_Touch_Sensor_Value_For_Link(self.Get_Link_Name()))
+        self.Set_Value(pyrosim.Get_Touch_Sensor_Value_For_Link(self.Get_Link_Name()), self.Get_Value())
 
 
+#Pay attention here for adding recurrent connections
     def Update_Hidden_Or_Motor_Neuron(self, neurons, synapses):
-        self.Set_Value(0)
+        self.Set_Value(0, self.Get_Value())
         #print("before: " + str(self.Get_Value()))
         for s_key in synapses:
-            if s_key[1] == self.Get_Name():
+            if neurons[s_key[0]].Is_Hidden_Neuron() and neurons[s_key[1]].Is_Hidden_Neuron():
+                # print("J")
+                # print(s_key)
+                self.Allow_Presynaptic_Neuron_To_Influence_Me(synapses[s_key].Get_Weight(), neurons[s_key[0]].Get_Prev_Value())
+            elif s_key[1] == self.Get_Name():
+                # print("K")
+                # print(s_key)
                 self.Allow_Presynaptic_Neuron_To_Influence_Me(synapses[s_key].Get_Weight(), neurons[s_key[0]].Get_Value())
                                                               #pre synaptic weight           value of pre neuron
+
         self.Threshold()
+
         #print("after: " + str(self.Get_Value()))
+
     def Allow_Presynaptic_Neuron_To_Influence_Me(self, synaptic_weight, neuron_value ):
         value = synaptic_weight * neuron_value
         self.Add_To_Value(value)
@@ -113,6 +131,9 @@ class NEURON:
     def Print_Type(self):
 
        print(self.type)
+
+
+
 
     def Print_Value(self):
 

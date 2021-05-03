@@ -20,8 +20,11 @@ s = 4 #number of sensors on robot
 m = 8 #number of motors on robot
 
 currentGenerations = 10
-
 populationSize = 10
+
+SENSOR_NEURON = "sensor"
+MOTOR_NEURON = "motor"
+HIDDEN_NEURON = "hidden"
 
 
 numSensorNeurons = 4

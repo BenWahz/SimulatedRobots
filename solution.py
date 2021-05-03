@@ -105,7 +105,7 @@ class SOLUTION:
 
         pyrosim.Send_Joint(name="Front_Right_To_Lower", parent="Front_Right_Leg", child="Front_Right_Leg_Lower", type="revolute",
                            position="0 0.125 -1", jointAxis="0 1 0")
-        pyrosim.Send_Cube(name="Front_Right_Leg_Lower", pos=[-0.5, 0, 0], size=[1, 0.25, .25])
+        pyrosim.Send_Cube(name="Front_Right_Leg_Lower", pos=[-0.5, 0.2, 0], size=[1, 0.25, .25])
         #
         # # front left leg
         pyrosim.Send_Joint(name="Torso_To_Front_Left", parent="Torso", child="Front_Left_Leg", type="revolute",
@@ -114,7 +114,7 @@ class SOLUTION:
 
         pyrosim.Send_Joint(name="Front_Left_To_Lower", parent="Front_Left_Leg", child="Front_Left_Leg_Lower", type="revolute",
                            position="0 -0.125 -1", jointAxis="0 1 0")
-        pyrosim.Send_Cube(name="Front_Left_Leg_Lower", pos=[-0.5, 0, 0], size=[1, 0.25, 0.25])
+        pyrosim.Send_Cube(name="Front_Left_Leg_Lower", pos=[-0.5, -0.2, 0], size=[1, 0.25, 0.25])
 
         # back right leg
         pyrosim.Send_Joint(name="Torso_To_Back_Right", parent="Torso", child="Back_Right_Leg", type="revolute",
@@ -124,7 +124,7 @@ class SOLUTION:
         pyrosim.Send_Joint(name="Back_Right_To_Lower", parent="Back_Right_Leg", child="Back_Right_Leg_Lower",
                            type="revolute",
                            position="0 0.125 -1", jointAxis="0 1 0")
-        pyrosim.Send_Cube(name="Back_Right_Leg_Lower", pos=[-0.5, 0, 0], size=[1, 0.25, .25])
+        pyrosim.Send_Cube(name="Back_Right_Leg_Lower", pos=[-0.5, 0.2, 0], size=[1, 0.25, .25])
         #
         # # back left leg
         pyrosim.Send_Joint(name="Torso_To_Back_Left", parent="Torso", child="Back_Left_Leg", type="revolute",
@@ -134,7 +134,7 @@ class SOLUTION:
         pyrosim.Send_Joint(name="Back_Left_To_Lower", parent="Back_Left_Leg", child="Back_Left_Leg_Lower",
                            type="revolute",
                            position="0 -0.125 -1", jointAxis="0 1 0")
-        pyrosim.Send_Cube(name="Back_Left_Leg_Lower", pos=[-0.5, 0, 0], size=[1, 0.25, 0.25])
+        pyrosim.Send_Cube(name="Back_Left_Leg_Lower", pos=[-0.5, -.2, 0], size=[1, 0.25, 0.25])
 
 
 
@@ -236,10 +236,12 @@ class SOLUTION:
 
         for currentRow in range(c.numHiddenNeurons):
             for currentColumn in range(c.numMotorNeurons):
-                pyrosim.Send_Synapse(sourceNeuronName=currentRow+c.numSensorNeurons, targetNeuronName=currentColumn + c.numSensorNeurons+c.numHiddenNeurons, weight=self.motor_weights[currentRow][currentColumn])
+                pyrosim.Send_Synapse(sourceNeuronName=currentRow+c.numSensorNeurons, targetNeuronName=currentColumn + c.numSensorNeurons, weight=self.motor_weights[currentRow][currentColumn])
+
+        #Hidden Neurons Recurrent Connections
 
         pyrosim.End()
-
+        # pyrosim.Send_Synapse(sourceNeuronName=currentRow, targetNeuronName=currentColumn + c.numSensorNeurons,weight=self.sensor_weights[currentRow][currentColumn])
         while not os.path.exists("brain" + str(self.myID) + ".nndf"):
             time.sleep(0.01)
         # exit()

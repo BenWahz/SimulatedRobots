@@ -159,7 +159,8 @@ def Send_Hidden_Neuron(name):
 
     f.write('    <neuron name = "' + str(name) + '" type = "hidden" />\n')
 
-
+def Send_Recurrent_HiddenNeuron(name):
+    f.write('    <neuron name = "' + str(name) + '" type = "hidden" />\n')
 
 def Set_Motor_For_Joint(bodyIndex,jointName,controlMode,targetPosition,maxForce):
 
