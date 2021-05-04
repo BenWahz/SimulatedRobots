@@ -19,8 +19,8 @@ Steps_constant = 2500
 s = 4 #number of sensors on robot
 m = 8 #number of motors on robot
 
-currentGenerations = 10
-populationSize = 10
+currentGenerations = 15
+populationSize = 8
 
 SENSOR_NEURON = "sensor"
 MOTOR_NEURON = "motor"

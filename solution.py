@@ -106,6 +106,11 @@ class SOLUTION:
         pyrosim.Send_Joint(name="Front_Right_To_Lower", parent="Front_Right_Leg", child="Front_Right_Leg_Lower", type="revolute",
                            position="0 0.125 -1", jointAxis="0 1 0")
         pyrosim.Send_Cube(name="Front_Right_Leg_Lower", pos=[-0.5, 0.2, 0], size=[1, 0.25, .25])
+            #front right foot (sensor)
+        pyrosim.Send_Joint(name="Front_Right_Ankle", parent="Front_Right_Leg_Lower", child="Front_Right_Foot",
+                           type="revolute", position="-1.25 0.2 0", jointAxis="1 0 0")
+        pyrosim.Send_Cube(name="Front_Right_Foot", pos=[0.25, 0, 0], size=[0.35, 0.35, .35])
+
         #
         # # front left leg
         pyrosim.Send_Joint(name="Torso_To_Front_Left", parent="Torso", child="Front_Left_Leg", type="revolute",
@@ -115,6 +120,10 @@ class SOLUTION:
         pyrosim.Send_Joint(name="Front_Left_To_Lower", parent="Front_Left_Leg", child="Front_Left_Leg_Lower", type="revolute",
                            position="0 -0.125 -1", jointAxis="0 1 0")
         pyrosim.Send_Cube(name="Front_Left_Leg_Lower", pos=[-0.5, -0.2, 0], size=[1, 0.25, 0.25])
+            # front left foot (sensor)
+        pyrosim.Send_Joint(name="Front_Left_Ankle", parent="Front_Left_Leg_Lower", child="Front_Left_Foot",
+                           type="revolute", position="-1.25 -0.2 0", jointAxis="1 0 0")
+        pyrosim.Send_Cube(name="Front_Left_Foot", pos=[0.25, 0, 0], size=[0.35, 0.35, .35])
 
         # back right leg
         pyrosim.Send_Joint(name="Torso_To_Back_Right", parent="Torso", child="Back_Right_Leg", type="revolute",
@@ -125,6 +134,12 @@ class SOLUTION:
                            type="revolute",
                            position="0 0.125 -1", jointAxis="0 1 0")
         pyrosim.Send_Cube(name="Back_Right_Leg_Lower", pos=[-0.5, 0.2, 0], size=[1, 0.25, .25])
+            # Back right foot (sensor)
+        pyrosim.Send_Joint(name="Back_Right_Ankle", parent="Back_Right_Leg_Lower", child="Back_Right_Foot",
+                           type="revolute", position="-1.25 0.2 0", jointAxis="1 0 0")
+        pyrosim.Send_Cube(name="Back_Right_Foot", pos=[0.25, 0, 0], size=[0.35, 0.35, .35])
+
+
         #
         # # back left leg
         pyrosim.Send_Joint(name="Torso_To_Back_Left", parent="Torso", child="Back_Left_Leg", type="revolute",
@@ -135,7 +150,10 @@ class SOLUTION:
                            type="revolute",
                            position="0 -0.125 -1", jointAxis="0 1 0")
         pyrosim.Send_Cube(name="Back_Left_Leg_Lower", pos=[-0.5, -.2, 0], size=[1, 0.25, 0.25])
-
+        # front left foot (sensor)
+        pyrosim.Send_Joint(name="Back_Left_Ankle", parent="Back_Left_Leg_Lower", child="Back_Left_Foot",
+                           type="revolute", position="-1.25 -0.2 0", jointAxis="1 0 0")
+        pyrosim.Send_Cube(name="Back_Left_Foot", pos=[0.25, 0, 0], size=[0.35, 0.35, .35])
 
 
         #back upper leg
@@ -181,10 +199,10 @@ class SOLUTION:
 
         #commented out sensors to try only having sensors on lower legs
 
-        pyrosim.Send_Sensor_Neuron(name=0, linkName="Front_Right_Leg_Lower")
-        pyrosim.Send_Sensor_Neuron(name=1, linkName="Front_Left_Leg_Lower")
-        pyrosim.Send_Sensor_Neuron(name=2, linkName="Back_Right_Leg_Lower")
-        pyrosim.Send_Sensor_Neuron(name=3, linkName="Back_Left_Leg_Lower")
+        pyrosim.Send_Sensor_Neuron(name=0, linkName="Front_Right_Foot")
+        pyrosim.Send_Sensor_Neuron(name=1, linkName="Front_Left_Foot")
+        pyrosim.Send_Sensor_Neuron(name=2, linkName="Back_Right_Foot")
+        pyrosim.Send_Sensor_Neuron(name=3, linkName="Back_Left_Foot")
 
         #send hidden neurons
         pyrosim.Send_Hidden_Neuron(name=4)
